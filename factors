@@ -4,15 +4,19 @@ a = []
 file = open("tests/test00", "r")
 a.append([float(line) for line in file])
 x = a[0]
+print(x)
 
 for j in range(len(x)):
     y = []
-    for i, val in enumerate(x):
-        i += 1
+    for i, val  in enumerate(x):
+        i+=1
         if x[j] % i == 0:
             y.append((i, x[j] / i))
-    print(y)
-    p = y[1][1]
-    q = y[1][0]
+    try:
+        p = y[1][1]
+        q = y[1][0]
+    except (Exception):
+        p=y[0][1]
+        q=y[0][0]
 
     print("{:.0f}={:.0f}*{:d}".format(p * q, p, q))
