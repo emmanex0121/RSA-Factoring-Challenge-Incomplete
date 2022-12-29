@@ -10,12 +10,13 @@ for j in range(len(x)):
     for i, val  in enumerate(x):
         #i += 1
         try:
-            x[j] % i
+            if x[j] % i == 0:
+                y.append((i, x[j] / i))
         except ZeroDivisionError:
             i += 1
-        if x[j] % i == 0:
-            y.append((i, x[j] / i))
-        i += 1
+        else:
+            i += 1
+    print(y)
     p = y[1][1]
     q = y[1][0]
 
