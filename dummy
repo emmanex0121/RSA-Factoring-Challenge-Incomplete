@@ -1,0 +1,26 @@
+#!/usr/bin/python3
+# factors by Phoenix
+"""FINDS FACTORS OF NUMBERS"""
+
+a = []
+file = open("tests/test00", "r")
+a.append([float(line) for line in file])
+x = a[0]
+print(x)
+
+for j in range(len(x)):
+    i = 1
+    y = []
+    while i * i <= x[j]:
+        if x[j] % i == 0:
+            y.append((i, x[j] / i))
+        i+=1
+    print(y)
+    if len(y) > 1:
+        p = y[1][1]
+        q = y[1][0]
+    else:
+        p=y[0][1]
+        q=y[0][0]
+
+    print("{:.0f}={:.0f}*{:d}".format(p * q, p, q))
